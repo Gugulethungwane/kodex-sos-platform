@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10182B">
+  <meta name="description" content="Khusela is an inclusive personal safety and GBV support platform.">
+  <title>Khusela — Your Safety, Your Choice</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <a href="#dashboard" class="brand" aria-label="Khusela dashboard">
+        <span class="brand-symbol">K<span>+</span></span>
+        <span class="brand-name">khusela<small>SAFETY, WITH DIGNITY</small></span>
+      </a>
+
+      <div class="profile-label">YOUR SPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#dashboard"><span>⌂</span> Overview</a>
+        <a class="nav-link" href="#safety"><span>◈</span> Safety centre</a>
+        <a class="nav-link" href="#contacts"><span>♡</span> Trusted people</a>
+        <a class="nav-link" href="#plan"><span>▤</span> My safety plan</a>
+        <a class="nav-link" href="#support"><span>✳</span> Get support</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="privacy-card">
+          <span class="privacy-icon">◉</span>
+          <strong>Your privacy matters.</strong>
+          <p>Your choices come first. Only share information when you feel safe to do so.</p>
+        </div>
+        <button class="nav-link settings-button" id="settingsButton" type="button">
+          <span>⚙</span> Display settings
+        </button>
+        <div class="sidebar-footer">KHUSELA · UI/UX BY MRS RORONOA</div>
+      </div>
+    </aside>
+
+    <main class="main" id="dashboard">
+      <header class="topbar">
+        <button class="icon-button menu-button" id="menuButton" aria-label="Open navigation" type="button">☰</button>
+        <div class="breadcrumb">Your space <span>/</span> <strong>Overview</strong></div>
+        <div class="top-actions">
+          <span class="secure-label"><span class="green-dot"></span> A space for you</span>
+          <button class="avatar" id="profileButton" type="button" aria-label="Profile options">Y</button>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="welcome-row">
+          <div>
+            <p class="overline">KHUSELA  · YOUR PERSONAL SAFETY SPACE</p>
+            <h1>You matter. <span>Your safety matters.</span></h1>
+            <p class="subheading">A place to find support, prepare ahead, and take your next step at your own pace.</p>
+          </div>
+          <div class="welcome-mark" aria-hidden="true">
+            <div class="mark-ring ring-one"></div>
+            <div class="mark-ring ring-two"></div>
+            <span>✳</span>
+          </div>
+        </section>
+
+        <section class="emergency-banner" id="safety" aria-labelledby="urgent-title">
+          <div class="emergency-symbol" aria-hidden="true">!</div>
+          <div class="emergency-copy">
+            <span class="banner-eyebrow">NEED HELP RIGHT NOW?</span>
+            <h2 id="urgent-title">Your safety comes first.</h2>
+            <p>If you are in immediate danger, move to a safer place if possible and contact local emergency services or someone you trust.</p>
+          </div>
+          <button class="button button-emergency" id="emergencyButton" type="button">
+            Emergency options <span aria-hidden="true">↗</span>
+          </button>
+        </section>
+
+        <div class="section-title-row">
+          <div>
+            <p class="overline">YOUR QUICK ACTIONS</p>
+            <h2>What do you need today?</h2>
+          </div>
+          <span class="section-note">Choose what feels right for you.</span>
+        </div>
+
+        <section class="action-grid" aria-label="Quick safety actions">
+          <button class="action-card action-primary" id="checkInButton" type="button">
+            <span class="action-icon">✓</span>
+            <span class="action-text"><strong>Safety check-in</strong><small>Record how safe you feel right now.</small></span>
+            <span class="card-arrow">↗</span>
+          </button>
+          <a class="action-card" href="#contacts">
+            <span class="action-icon icon-teal">♡</span>
+            <span class="action-text"><strong>Trusted people</strong><small>Manage the people in your corner.</small></span>
+            <span class="card-arrow">↗</span>
+          </a>
+          <a class="action-card" href="#plan">
+            <span class="action-icon icon-violet">▤</span>
+            <span class="action-text"><strong>Safety plan</strong><small>Prepare steps that work for you.</small></span>
+            <span class="card-arrow">↗</span>
+          </a>
+          <a class="action-card" href="#support">
+            <span class="action-icon icon-amber">✳</span>
+            <span class="action-text"><strong>Find support</strong><small>Explore support and helpful resources.</small></span>
+            <span class="card-arrow">↗</span>
+          </a>
+        </section>
+
+        <div class="dashboard-grid">
+          <section class="panel checkin-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="overline">A MOMENT FOR YOU</p>
+                <h2>Your safety check-in</h2>
+              </div>
+              <span class="soft-tag"><span class="green-dot"></span> Private demo</span>
+            </div>
+            <p class="panel-description">You don't have to explain everything. Start with how you feel.</p>
+
+            <div class="feeling-options" role="group" aria-label="How safe do you feel?">
+              <button class="feeling" data-feeling="Safe" type="button">
+                <span>☺</span><strong>Safe</strong>
+              </button>
+              <button class="feeling" data-feeling="Unsure" type="button">
+                <span>◡</span><strong>Unsure</strong>
+              </button>
+              <button class="feeling" data-feeling="Unsafe" type="button">
+                <span>!</span><strong>Unsafe</strong>
+              </button>
+            </div>
+
+            <div class="checkin-result" id="checkinResult" role="status" aria-live="polite">
+              <span class="result-mark">✳</span>
+              <span><strong>Your check-in belongs to you.</strong><small>Select an option above to see a suggested next step.</small></span>
+            </div>
+            <p class="privacy-footnote">This demo does not send or store your check-in online.</p>
+          </section>
+
+          <section class="panel contacts-panel" id="contacts">
+            <div class="panel-heading">
+              <div>
+                <p class="overline">YOUR SUPPORT NETWORK</p>
+                <h2>Trusted people</h2>
+              </div>
+              <span class="count-badge" id="contactCount">0</span>
+            </div>
+            <p class="panel-description">Choose people you feel comfortable reaching out to.</p>
+
+            <div class="contact-list" id="contactList">
+              <div class="empty-state">
+                <span>♡</span>
+                <strong>Your people, your choice.</strong>
+                <p>Add a trusted person to start building your support list.</p>
+              </div>
+            </div>
+
+            <button class="button button-outline button-full" id="addContactButton" type="button">
+              <span>＋</span> Add a trusted person
+            </button>
+            <p class="privacy-footnote">Contact details stay in this browser demo and are not sent to anyone.</p>
+          </section>
+        </div>
+
+        <div class="dashboard-grid lower-grid">
+          <section class="panel plan-panel" id="plan">
+            <div class="panel-heading">
+              <div>
+                <p class="overline">PREPARE AT YOUR OWN PACE</p>
+                <h2>My safety plan</h2>
+              </div>
+              <span class="plan-icon">◈</span>
+            </div>
+            <p class="panel-description">Small steps can help you prepare. Tick only the steps that feel appropriate for you.</p>
+
+            <div class="plan-progress">
+              <div class="progress-label"><span>My preparation</span><strong id="progressText">0 of 4</strong></div>
+              <div class="progress-track"><span id="progressBar"></span></div>
+            </div>
+
+            <div class="plan-list">
+              <label class="plan-item"><input type="checkbox" class="plan-check"><span class="custom-check"></span><span><strong>Identify a safer place</strong><small>Consider somewhere you could go if needed.</small></span></label>
+              <label class="plan-item"><input type="checkbox" class="plan-check"><span class="custom-check"></span><span><strong>Choose someone to contact</strong><small>Think of a person you trust.</small></span></label>
+              <label class="plan-item"><input type="checkbox" class="plan-check"><span class="custom-check"></span><span><strong>Know how to get help</strong><small>Find reliable local support options.</small></span></label>
+              <label class="plan-item"><input type="checkbox" class="plan-check"><span class="custom-check"></span><span><strong>Consider digital privacy</strong><small>Review who may access your device.</small></span></label>
+            </div>
+            <p class="privacy-footnote">A plan is personal. You can skip any step that could put you at risk.</p>
+          </section>
+
+          <section class="panel support-panel" id="support">
+            <div class="panel-heading">
+              <div>
+                <p class="overline">YOU DON'T HAVE TO DO IT ALONE</p>
+                <h2>Support & guidance</h2>
+              </div>
+              <span class="support-icon">✳</span>
+            </div>
+            <p class="panel-description">Explore possible next steps. Choose what feels safest for you.</p>
+
+            <a class="resource-row" href="#emergency-help" id="resourceEmergency">
+              <span class="resource-icon red-icon">!</span>
+              <span><strong>Immediate danger</strong><small>Understand urgent options</small></span>
+              <span class="resource-arrow">↗</span>
+            </a>
+            <a class="resource-row" href="#trusted-support" id="resourceTrusted">
+              <span class="resource-icon teal-icon">♡</span>
+              <span><strong>Talk to someone</strong><small>Consider a trusted person or support service</small></span>
+              <span class="resource-arrow">↗</span>
+            </a>
+            <a class="resource-row" href="#digital-safety" id="resourceDigital">
+              <span class="resource-icon violet-icon">⌁</span>
+              <span><strong>Digital safety</strong><small>Think about device and account privacy</small></span>
+              <span class="resource-arrow">↗</span>
+            </a>
+
+            <div class="support-note">
+              <span>ⓘ</span>
+              <p>You deserve support, regardless of your gender, identity, background or circumstances.</p>
+            </div>
+          </section>
+        </div>
+
+        <section class="closing-banner">
+          <div class="closing-symbol">K<span>+</span></div>
+          <div>
+            <p class="overline">A REMINDER FROM KHUSELA</p>
+            <h2>You deserve to be heard, respected and safe.</h2>
+            <p>Asking for support is a choice you deserve to have.</p>
+          </div>
+          <a class="button button-light" href="#support">Explore support <span>↗</span></a>
+        </section>
+
+        <footer class="footer">
+          <a href="#dashboard" class="footer-brand">khusela<span>+</span></a>
+          <p>Designed for everyone. Built around dignity and choice.</p>
+          <span>UI/UX LEAD · MRS RORONOA</span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <!-- DIALOGS -->
+  <dialog class="modal" id="appModal">
+    <div class="modal-head">
+      <div class="modal-mark" id="modalMark">✳</div>
+      <button class="icon-button modal-close" id="closeModal" type="button" aria-label="Close dialog">✕</button>
+    </div>
+    <div id="modalContent"></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const $ = (selector) => document.querySelector(selector);
+    const $$ = (selector) => [...document.querySelectorAll(selector)];
+
+    const modal = $("#appModal");
+    const modalContent = $("#modalContent");
+    const toast = $("#toast");
+    let toastTimer;
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 3200);
+    }
+
+    function openModal(title, text, actions = "") {
+      modalContent.innerHTML = `
+        <p class="overline">KHUSELA · YOUR SAFETY SPACE</p>
+        <h2>${title}</h2>
+        <div class="modal-copy">${text}</div>
+        ${actions}
+      `;
+      modal.showModal();
+    }
+
+    $("#closeModal").addEventListener("click", () => modal.close());
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) modal.close();
+    });
+
+    // Mobile navigation
+    $("#menuButton").addEventListener("click", () => {
+      $("#sidebar").classList.toggle("sidebar-open");
+    });
+
+    $$(".nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        $$(".nav-link").forEach(item => item.classList.remove("active"));
+        link.classList.add("active");
+        $("#sidebar").classList.remove("sidebar-open");
+      });
+    });
+
+    // Emergency information — no false claim that an alert was sent
+    $("#emergencyButton").addEventListener("click", () => {
+      openModal(
+        "Immediate safety options",
+        `<p>If you are in immediate danger, move to a safer place if you can and contact local emergency services or a person you trust.</p>
+         <div class="notice-box"><strong>Important</strong><p>This website demo cannot call emergency services, transmit your location or alert your contacts.</p></div>
+         <p>In South Africa, you can call <strong>112</strong> from a mobile phone for emergency assistance. If calling could put you at risk, consider whether a safer communication option is available.</p>`,
+        `<button class="button button-primary button-full" id="modalDone" type="button">I understand</button>`
+      );
+      $("#modalDone").addEventListener("click", () => modal.close());
+    });
+
+    // Safety check-in
+    const feelingMessages = {
+      Safe: ["Take a moment for yourself.", "If you feel comfortable, you can review your safety plan or check in with someone you trust."],
+      Unsure: ["It's okay not to know what to do.", "Consider moving somewhere you feel more comfortable or contacting a trusted person if it feels safe."],
+      Unsafe: ["Your safety comes first.", "If you are in immediate danger, seek a safer place if possible and contact emergency services or someone you trust."]
+    };
+
+    $$(".feeling").forEach(button => {
+      button.addEventListener("click", () => {
+        $$(".feeling").forEach(item => item.classList.remove("selected"));
+        button.classList.add("selected");
+        const [title, message] = feelingMessages[button.dataset.feeling];
+        $("#checkinResult").innerHTML = `
+          <span class="result-mark">✳</span>
+          <span><strong>${title}</strong><small>${message}</small></span>
+        `;
+      });
+    });
+
+    $("#checkInButton").addEventListener("click", () => {
+      document.querySelector(".checkin-panel").scrollIntoView({behavior:"smooth", block:"center"});
+      showToast("Your check-in is ready when you are.");
+    });
+
+    // Trusted contact list: kept in memory for this page session only
+    const contacts = [];
+    const contactList = $("#contactList");
+
+    function renderContacts() {
+      $("#contactCount").textContent = contacts.length;
+
+      if (!contacts.length) {
+        contactList.innerHTML = `
+          <div class="empty-state">
+            <span>♡</span>
+            <strong>Your people, your choice.</strong>
+            <p>Add a trusted person to start building your support list.</p>
+          </div>`;
+        return;
+      }
+
+      contactList.innerHTML = contacts.map((contact, index) => `
+        <div class="contact-item">
+          <span class="contact-avatar">${escapeHtml(contact.name.trim().charAt(0).toUpperCase())}</span>
+          <span class="contact-info"><strong>${escapeHtml(contact.name)}</strong><small>${escapeHtml(contact.relationship)}</small></span>
+          <button class="remove-contact" data-remove="${index}" type="button" aria-label="Remove ${escapeHtml(contact.name)}">✕</button>
+        </div>`).join("");
+
+      $$("[data-remove]").forEach(button => {
+        button.addEventListener("click", () => {
+          contacts.splice(Number(button.dataset.remove), 1);
+          renderContacts();
+          showToast("Trusted person removed from this demo.");
+        });
+      });
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, character => ({
+        "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+      }[character]));
+    }
+
+    $("#addContactButton").addEventListener("click", () => {
+      openModal(
+        "Add a trusted person",
+        `<p>Add someone you feel comfortable reaching out to. Only include details if it is safe for you to do so.</p>
+         <form id="contactForm" class="contact-form">
+           <label for="contactName">Name</label>
+           <input id="contactName" name="name" maxlength="70" required placeholder="Enter their name">
+           <label for="contactRelationship">Relationship</label>
+           <select id="contactRelationship" name="relationship" required>
+             <option value="">Choose relationship</option>
+             <option>Friend</option><option>Family</option><option>Partner</option>
+             <option>Teacher or colleague</option><option>Support professional</option><option>Other trusted person</option>
+           </select>
+           <button class="button button-primary button-full" type="submit">Add person</button>
+         </form>
+         <p class="privacy-footnote">Demo only: information is kept in page memory and disappears when the page is refreshed.</p>`
+      );
+
+      $("#contactForm").addEventListener("submit", event => {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        contacts.push({
+          name: data.get("name").trim(),
+          relationship: data.get("relationship")
+        });
+        renderContacts();
+        modal.close();
+        showToast("Trusted person added to this page session.");
+      });
+    });
+
+    // Safety plan progress
+    function updateProgress() {
+      const checks = $$(".plan-check");
+      const completed = checks.filter(check => check.checked).length;
+      $("#progressText").textContent = `${completed} of ${checks.length}`;
+      $("#progressBar").style.width = `${completed / checks.length * 100}%`;
+    }
+
+    $$(".plan-check").forEach(check => check.addEventListener("change", updateProgress));
+
+    // Resource information
+    const resources = {
+      resourceTrusted: {
+        title: "Talking to someone",
+        text: `<p>You can choose a friend, family member, educator, counsellor or support professional you trust.</p>
+          <p>You decide what to share and when. If one person does not respond safely, consider another trusted option if available.</p>`
+      },
+      resourceDigital: {
+        title: "Digital safety",
+        text: `<p>If someone may monitor your device, think carefully before changing settings or deleting history. A sudden change may be noticed.</p>
+          <ul><li>Use a safer device if you have access to one.</li><li>Review account access and location-sharing settings when safe.</li><li>Choose a password others cannot easily guess.</li></ul>
+          <p>Prioritise the option least likely to increase risk in your situation.</p>`
+      },
+      resourceEmergency: {
+        title: "Immediate danger",
+        text: `<p>If it is safe to do so, move towards a place with other people and contact local emergency services or someone you trust.</p>
+          <div class="notice-box"><strong>South Africa</strong><p>112 can be called from a mobile phone for emergency assistance.</p></div>
+          <p>Khusela's current browser version cannot place calls or send alerts on your behalf.</p>`
+      }
+    };
+
+    Object.entries(resources).forEach(([id, resource]) => {
+      $("#" + id).addEventListener("click", event => {
+        event.preventDefault();
+        openModal(resource.title, resource.text);
+      });
+    });
+
+    $("#settingsButton").addEventListener("click", () => {
+      openModal(
+        "Display settings",
+        `<p>Choose a display that feels comfortable for you.</p>
+         <div class="setting-actions">
+           <button class="button button-primary" id="darkModeButton" type="button">Dark mode</button>
+           <button class="button button-outline" id="lightModeButton" type="button">Light mode</button>
+         </div>`
+      );
+      $("#darkModeButton").addEventListener("click", () => {
+        document.body.classList.remove("light-mode");
+        modal.close();
+        showToast("Dark mode enabled.");
+      });
+      $("#lightModeButton").addEventListener("click", () => {
+        document.body.classList.add("light-mode");
+        modal.close();
+        showToast("Light mode enabled.");
+      });
+    });
+
+    $("#profileButton").addEventListener("click", () => {
+      openModal(
+        "Your space, your choices",
+        `<p>This version does not require an account or collect a profile. A production app should use secure authentication, clear privacy controls and accessible ways to manage personal information.</p>`
+      );
+    });
+  </script>
+</body>
+</html>
