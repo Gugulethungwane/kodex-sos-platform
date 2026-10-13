@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KHUSELA - Home</title>
+<style>
+*{margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif;}
+body{background:#0b081a; color:white; min-height:100vh; overflow-x:hidden; position:relative;}
+.bg{position:fixed; inset:0; z-index:-1; background:radial-gradient(60% 60% at 20% 20%, #5a2ca0 0%, transparent 60%), radial-gradient(50% 50% at 90% 10%, #ff2a6d 0%, transparent 40%), radial-gradient(70% 70% at 50% 100%, #1a1033 0%, #0b081a 60%);}
+.orb{position:absolute; border-radius:50%; filter:blur(40px); animation:float 6s infinite ease-in-out;}
+.orb1{width:300px; height:300px; background:rgba(138,76,255,0.25); top:10%; left:10%;}
+.orb2{width:200px; height:200px; background:rgba(255,42,109,0.2); top:30%; right:15%; animation-delay:2s;}
+
+.top{width:100%; display:flex; justify-content:space-between; padding:18px 30px; font-size:12px; letter-spacing:2px; color:#8a7bb8; max-width:1200px; margin:0 auto;}
+.brand{color:white; font-weight:900; letter-spacing:3px; font-size:14px;}
+.container{max-width:1100px; margin:0 auto; padding:20px 30px; display:grid; grid-template-columns:1.2fr 0.8fr; gap:30px;}
+@media(max-width:800px){.container{grid-template-columns:1fr; padding:15px;}}
+
+.left h2{font-size:42px; font-weight:900; line-height:1.1; margin-top:10px;}
+.left h2 span{color:#2aff95; text-shadow:0 0 20px #2aff95;}
+.left p{color:#a99bcf; margin-top:10px; font-size:14px;}
+
+.status-card{margin-top:25px; background:linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)); border:1px solid rgba(255,255,255,0.15); backdrop-filter:blur(25px); border-radius:28px; padding:20px 22px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 10px 40px rgba(0,0,0,0.3);}
+.dot{width:12px; height:12px; background:#2aff95; border-radius:50%; box-shadow:0 0 15px #2aff95; animation:pulse 1.5s infinite;}
+
+.sos-cta{margin-top:24px; width:100%; background:linear-gradient(95deg, #ff8fbd, #ff2a6d, #ff0055); border-radius:28px; padding:22px 26px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 15px 40px rgba(255,42,109,0.5), inset 0 1px 1px rgba(255,255,255,0.6); cursor:pointer; position:relative; overflow:hidden; transition:0.2s; animation:glow 2.5s infinite;}
+.sos-cta::after{content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent); transform:rotate(25deg); animation:shine 3s infinite;}
+.sos-cta:active{transform:scale(0.98);}
+.sos-cta b{font-size:20px; letter-spacing:1px; position:relative; z-index:2;}
+.sos-cta small{font-size:11px; opacity:0.9; z-index:2; position:relative;}
+.circle{width:58px; height:58px; background:white; border-radius:50%; display:flex; justify-content:center; align-items:center; color:#ff2a6d; font-weight:900; font-size:18px; box-shadow:0 5px 15px rgba(0,0,0,0.2); z-index:2;}
+
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:26px;}
+.card{background:linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03)); border:1px solid rgba(255,255,255,0.12); border-radius:24px; padding:20px; backdrop-filter:blur(20px); cursor:pointer; transition:0.25s; position:relative; overflow:hidden;}
+.card:hover{transform:translateY(-4px) scale(1.02); background:rgba(255,255,255,0.15); box-shadow:0 15px 30px rgba(0,0,0,0.3);}
+.card b{font-size:13px; display:block; margin-top:10px;} .card small{font-size:10px; color:#a99bcf; margin-top:4px; display:block;}
+.icon{width:44px; height:44px; border-radius:14px; display:flex; justify-content:center; align-items:center; font-size:20px;}
+
+.right{display:flex; flex-direction:column; gap:20px;}
+.map-card{background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:28px; padding:22px; backdrop-filter:blur(20px); min-height:300px;}
+.guardian-row{display:flex; gap:12px; margin-top:15px; align-items:center; background:rgba(255,255,255,0.05); padding:10px 12px; border-radius:16px;}
+.g-avatar{width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,#8ab4ff,#ff8fbd); display:flex; justify-content:center; align-items:center; font-weight:800; font-size:14px;}
+
+.bottom-nav{position:fixed; bottom:18px; left:50%; transform:translateX(-50%); width:90%; max-width:420px; background:rgba(20,15,40,0.9); backdrop-filter:blur(25px); border:1px solid rgba(255,255,255,0.15); border-radius:30px; display:flex; justify-content:space-around; padding:14px 10px; box-shadow:0 10px 40px rgba(0,0,0,0.5);}
+
+@keyframes float{0%,100%{transform:translateY(0);} 50%{transform:translateY(-20px);}}
+@keyframes pulse{0%,100%{opacity:1; transform:scale(1);} 50%{opacity:0.6; transform:scale(0.9);}}
+@keyframes glow{0%,100%{box-shadow:0 15px 40px rgba(255,42,109,0.5);} 50%{box-shadow:0 15px 60px rgba(255,42,109,0.8);}}
+@keyframes shine{0%{transform:translateX(-100%) rotate(25deg);} 100%{transform:translateX(200%) rotate(25deg);}}
+</style>
+</head>
+<body>
+<div class="bg"><div class="orb orb1"></div><div class="orb orb2"></div></div>
+
+<div class="top"><div class="brand">◉ KHUSELA</div><div style="display:flex; gap:15px;"><span>🔔</span><span id="liveClock">• LIVE</span></div></div>
+
+<div class="container">
+  <div class="left">
+    <h2>Hi, <span id="userName">Tebogo</span> 👋</h2>
+    <p id="greetSub">Stay safe Tebogo, your network is watching • <span style="color:#2aff95">3 guardians online</span></p>
+
+    <div class="status-card">
+      <div style="display:flex; gap:14px; align-items:center;"><div class="dot"></div><div><b>All Systems Armed</b><small style="color:#a99bcf">3 guardians • last check 2m ago</small></div></div>
+      <div style="color:#2aff95; font-size:24px;">✓</div>
+    </div>
+
+    <div class="sos-cta" onclick="location.href='sos.html'">
+      <div><b>EMERGENCY SOS</b><br><small>TAP TO OPEN • HOLD 3 SEC TO SEND</small></div>
+      <div class="circle">SOS</div>
+    </div>
+
+    <div class="grid">
+      <div class="card"><div class="icon" style="background:rgba(138,180,255,0.2);">📍</div><b>Share Location</b><small>Send live link to guardians</small></div>
+      <div class="card"><div class="icon" style="background:rgba(255,42,109,0.2);">🎧</div><b>Fake Call</b><small>Escape awkward situation</small></div>
+      <div class="card"><div class="icon" style="background:rgba(255,215,0,0.15);">💡</div><b>Safety Tips</b><small>5 new tips for tonight</small></div>
+      <div class="card"><div class="icon" style="background:rgba(42,255,149,0.15);">🕒</div><b>Check-In</b><small>I'm safe timer 30m</small></div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="map-card">
+      <b style="font-size:11px; letter-spacing:2px; opacity:0.6;">MY GUARDIANS</b>
+      <div class="guardian-row"><div class="g-avatar">M</div><div><b style="font-size:13px;">Mom</b><br><small style="color:#2aff95;">● Online • 2m away</small></div><div style="margin-left:auto;">📞</div></div>
+      <div class="guardian-row"><div class="g-avatar" style="background:linear-gradient(135deg,#ff8fbd,#ff2a6d)">S</div><div><b style="font-size:13px;">Sis</b><br><small style="color:#2aff95;">● Online • Campus</small></div><div style="margin-left:auto;">📞</div></div>
+      <div class="guardian-row"><div class="g-avatar" style="background:linear-gradient(135deg,#2aff95,#00c9a7)">B</div><div><b style="font-size:13px;">Bestie</b><br><small style="color:#a99bcf;">● Last seen 10m</small></div><div style="margin-left:auto;">💬</div></div>
+      <div style="margin-top:20px; background:rgba(42,255,149,0.08); border:1px dashed rgba(42,255,149,0.3); border-radius:16px; padding:12px; text-align:center; font-size:11px; cursor:pointer;">+ Add Guardian</div>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-nav">
+  <div style="text-align:center; opacity:1;">🏠<br><span style="font-size:9px; font-weight:700;">HOME</span></div>
+  <div style="text-align:center; opacity:0.5; cursor:pointer;" onclick="location.href='sos.html'">🆘<br><span style="font-size:9px;">SOS</span></div>
+  <div style="text-align:center; opacity:0.5;">👥<br><span style="font-size:9px;">GUARDIANS</span></div>
+  <div style="text-align:center; opacity:0.5;">⚙️<br><span style="font-size:9px;">SETTINGS</span></div>
+</div>
+
+<script>
+let savedName = localStorage.getItem('khuselaName') || "Tebogo";
+document.getElementById('userName').innerText = savedName;
+document.getElementById('greetSub').innerHTML = `Stay safe ${savedName}, your network is watching • <span style="color:#2aff95">3 guardians online</span>`;
+setInterval(()=>{ document.getElementById('liveClock').innerText = "• " + new Date().toLocaleTimeString(); },1000);
+</script>
+</body>
+</html>

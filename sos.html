@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KHUSELA SOS</title>
+<style>
+*{margin:0; padding:0; box-sizing:border-box; font-family:'Inter','Segoe UI',sans-serif;}
+body{background: radial-gradient(120% 120% at 50% -10%, #3a1a6b 0%, #1a1033 40%, #0b081a 100%); color:white; min-height:100vh; display:flex; flex-direction:column; align-items:center; overflow:hidden; transition:background 0.5s;}
+body.alert-mode{background:radial-gradient(120% 120% at 50% -10%, #6b1a1a 0%, #331010 40%, #1a0808 100%);}
+.top{width:100%; max-width:420px; display:flex; justify-content:space-between; padding:18px 22px; font-size:10px; letter-spacing:1.5px; color:#8a7bb8;}
+.brand{color:white; font-weight:800; display:flex; align-items:center; gap:6px;}
+.dot{width:8px; height:8px; background:#2aff95; border-radius:50%; box-shadow:0 0 10px #2aff95; animation:pulseDot 1.5s infinite;}
+.status{margin-top:20px; font-size:9px; letter-spacing:4px; color:#2aff95; display:flex; align-items:center; gap:8px;}
+h1{font-size:26px; font-weight:900; letter-spacing:3px; margin-top:8px; text-shadow:0 0 30px rgba(255,255,255,0.3);}
+.sub{font-size:10px; color:#a99bcf; letter-spacing:1px; margin-top:6px;}
+
+.sos-wrap{position:relative; margin-top:40px; width:260px; height:260px; display:flex; justify-content:center; align-items:center;}
+.ring1,.ring2,.ring3{position:absolute; border:1px solid #ff2a6d; border-radius:50%; animation:wave 2.5s infinite;}
+.ring1{width:260px; height:260px; opacity:0.3;} .ring2{width:320px; height:320px; opacity:0.15; animation-delay:0.6s;} .ring3{width:380px; height:380px; opacity:0.08; animation-delay:1.2s;}
+
+.main-btn{
+  width:200px; height:200px; background:radial-gradient(120% 120% at 30% 20%, #ff8fbd 0%, #ff2a6d 55%, #cc0a4a 100%);
+  border-radius:50%; border:4px solid rgba(255,255,255,0.8); 
+  box-shadow:0 0 40px #ff2a6d, 0 0 80px rgba(255,42,109,0.4), inset 0 4px 15px rgba(255,255,255,0.5);
+  display:flex; flex-direction:column; justify-content:center; align-items:center; cursor:pointer; z-index:10;
+  transition:all 0.15s; animation:floatBtn 3s ease-in-out infinite;
+}
+.main-btn:active{transform:scale(0.93);} 
+.main-btn b{font-size:44px; font-weight:900; letter-spacing:2px;}
+.main-btn span{font-size:9px; margin-top:4px; letter-spacing:1.2px; opacity:0.9; font-weight:700;}
+.main-btn.counting b{font-size:70px; animation:pop 0.3s ease;}
+.main-btn.sent{background:radial-gradient(#ff1a1a,#8a0000)!important; box-shadow:0 0 60px red, 0 0 120px rgba(255,0,0,0.5)!important; border-color:#ffaaaa;}
+
+.progress-wrap{width:220px; height:8px; background:rgba(255,255,255,0.1); border-radius:10px; margin-top:35px; overflow:hidden;}
+#fill{width:0%; height:100%; background:linear-gradient(90deg, #ff2a6d, #ff8fbd); box-shadow:0 0 10px #ff2a6d;}
+
+.bottom{margin-top:auto; width:100%; max-width:400px; padding:20px; display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:10px;}
+.card{background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); backdrop-filter:blur(20px); border-radius:20px; padding:14px 5px; text-align:center; cursor:pointer;}
+.card span{font-size:8px; letter-spacing:1px; font-weight:700; opacity:0.8;}
+.card.stop{background:#ff1a1a!important; box-shadow:0 0 20px red; animation:shake 0.2s infinite;}
+
+@keyframes wave{0%{transform:scale(0.8); opacity:0.5;} 100%{transform:scale(1.3); opacity:0;}}
+@keyframes pulseDot{0%,100%{opacity:1;} 50%{opacity:0.3;}}
+@keyframes floatBtn{0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);}}
+@keyframes shake{0%{transform:translateX(-1px);} 100%{transform:translateX(1px);}}
+@keyframes pop{0%{transform:scale(0.5);} 60%{transform:scale(1.3);} 100%{transform:scale(1);}}
+</style>
+</head>
+<body id="body">
+
+<div class="top">
+  <div class="brand"><span style="color:#8ab4ff">◉</span> KHUSELA</div>
+  <div>• SYSTEM ARMED</div>
+</div>
+
+<div class="status"><div class="dot"></div> LIVE PROTECTION ACTIVE</div>
+<h1 id="title">EMERGENCY SOS</h1>
+<div class="sub" id="sub">Tap and hold for 3 seconds to alert your guardians</div>
+
+<div class="sos-wrap">
+  <div class="ring1"></div><div class="ring2"></div><div class="ring3"></div>
+  <div class="main-btn" id="helpBtn">
+    <b id="helpText">HELP</b>
+    <span id="holdText">HOLD 3 SEC</span>
+  </div>
+</div>
+
+<div class="progress-wrap"><div id="fill"></div></div>
+
+<div class="bottom">
+  <div class="card" onclick="location.href='home.html'"><div>👥</div><span>CONTACTS</span></div>
+  <div class="card" id="sirenBtn" onclick="toggleSiren()"><div id="sirenIcon">🔊</div><span id="sirenLabel">SIREN</span></div>
+  <div class="card"><div>💬</div><span>MESSAGE</span></div>
+  <div class="card" onclick="window.location.href='tel:112'"><div>📞</div><span>112</span></div>
+</div>
+
+<audio id="sirenAudio" loop><source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" type="audio/ogg"></audio>
+
+<script>
+let isOn=false;
+const audio=document.getElementById('sirenAudio');
+const sBtn=document.getElementById('sirenBtn');
+function toggleSiren(){
+  if(!isOn){ audio.play(); document.getElementById('sirenLabel').innerText="STOP"; document.getElementById('sirenIcon').innerText="🔴"; sBtn.classList.add('stop'); isOn=true; setTimeout(stopSiren,60000); if(navigator.vibrate) navigator.vibrate([200,100,200]);}
+  else stopSiren();
+}
+function stopSiren(){ audio.pause(); audio.currentTime=0; document.getElementById('sirenLabel').innerText="SIREN"; document.getElementById('sirenIcon').innerText="🔊"; sBtn.classList.remove('stop'); isOn=false;}
+
+let hold=0, inter, countInterval;
+const btn=document.getElementById('helpBtn');
+const fill=document.getElementById('fill');
+const helpText=document.getElementById('helpText');
+const holdText=document.getElementById('holdText');
+
+btn.addEventListener('touchstart', start, {passive:false});
+btn.addEventListener('touchend', end);
+btn.addEventListener('mousedown', start);
+btn.addEventListener('mouseup', end);
+btn.addEventListener('mouseleave', end);
+
+function start(e){
+  e.preventDefault(); hold=0; fill.style.width="0%"; helpText.innerText="3"; holdText.innerText="KEEP HOLDING..."; btn.classList.add('counting');
+  if(navigator.vibrate) navigator.vibrate(50);
+  let sec=3;
+  countInterval=setInterval(()=>{ sec--; if(sec>0){ helpText.innerText=sec; if(navigator.vibrate) navigator.vibrate(50); }},1000);
+  inter=setInterval(()=>{
+    hold+=50; fill.style.width=(hold/30)+"%";
+    if(hold>=3000){ clearInterval(inter); clearInterval(countInterval); doSOS(); }
+  },50);
+}
+function end(){ clearInterval(inter); clearInterval(countInterval); if(hold<3000){ fill.style.width="0%"; helpText.innerText="HELP"; holdText.innerText="HOLD 3 SEC"; btn.classList.remove('counting'); }}
+
+function doSOS(){
+  btn.classList.remove('counting'); btn.classList.add('sent');
+  helpText.innerText="SENT!"; holdText.innerText="HELP IS COMING";
+  document.getElementById('body').classList.add('alert-mode');
+  document.getElementById('title').innerText="SOS SENT";
+  document.getElementById('sub').innerText="Your guardians have been alerted";
+  if(navigator.vibrate) navigator.vibrate([300,100,300,100,500]);
+  if(!isOn) toggleSiren();
+  setTimeout(()=>{ btn.classList.remove('sent'); document.getElementById('body').classList.remove('alert-mode'); helpText.innerText="HELP"; holdText.innerText="HOLD 3 SEC"; document.getElementById('title').innerText="EMERGENCY SOS"; document.getElementById('sub').innerText="Tap and hold for 3 seconds to alert your guardians"; fill.style.width="0%";},3000);
+}
+</script>
+</body>
+</html>
