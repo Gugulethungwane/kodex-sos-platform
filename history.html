@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>History - KHUSELA</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alert History - KHUSELA</title>
+<style>
+body{margin:0;background:#F2E8FF;font-family:Arial;display:flex;justify-content:center;padding:20px}
+.card{background:white;border-radius:24px;padding:24px;max-width:400px;width:100%}
+h1{color:#2D1B4D}
+.item{display:flex;align-items:center;gap:12px;border:1px solid #eee;border-radius:16px;padding:14px;margin:12px 0}
+.icon{background:#F2E8FF;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center}
+.badge{margin-left:auto;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:bold}
+.resolved{background:#FFF3DC;color:#8A5A00}
+.escalated{background:#E9DDFF;color:#4B2A7B}
+.cancelled{background:#E8EAEE;color:#5A6472}
+.sample{background:#F2E8FF;color:#6B5A8A;font-size:10px;padding:4px 10px;border-radius:20px;letter-spacing:1px}
+.header{display:flex;justify-content:space-between;align-items:center;background:#F9F5FF;padding:10px 14px;border-radius:12px}
+</style>
 </head>
-<body class="sos-page">
-  <div class="sos-container">
-    <h1 class="khusela-title">SOS History</h1>
-    
-    <div class="history-item">
-      <p><b>Today 02:07</b> - SOS Sent - Help Arrived</p>
-      <p><b>Yesterday</b> - Test SOS - Completed</p>
-    </div>
-
-    <a href="index.html" class="btn-home">Back to Home</a>
-  </div>
+<body>
+<div class="card">
+<p style="font-size:10px;letter-spacing:2px;color:#888">YOUR SAFE CIRCLE</p>
+<h1>Alert history</h1>
+<p style="color:#6B5A8A;font-size:14px">A clear record of recent alerts and their outcomes.</p>
+<div class="header"><b style="font-size:13px;color:#4B2A7B">Recent alerts</b><span class="sample">SAMPLE DATA</span></div>
+<div class="item"><div class="icon">⚠️</div><div><b>15 Jan 2024</b><br><span style="color:#888;font-size:12px">08:42</span></div><span class="badge resolved">Resolved</span></div>
+<div class="item"><div class="icon">⚠️</div><div><b>14 Jan 2024</b><br><span style="color:#888;font-size:12px">22:10</span></div><span class="badge escalated">Escalated</span></div>
+<div class="item"><div class="icon">⚠️</div><div><b>14 Jan 2024</b><br><span style="color:#888;font-size:12px">08:42</span></div><span class="badge resolved">Resolved</span></div>
+<div class="item"><div class="icon">⚠️</div><div><b>14 Jan 2024</b><br><span style="color:#888;font-size:12px">17:33</span></div><span class="badge cancelled">Cancelled</span></div>
+<p style="font-size:11px;color:#888;margin-top:20px">These entries are illustrative sample data for the frontend preview, not your personal alert history.</p>
+<br><a href="index.html" style="color:#4B2A7B;text-decoration:none;font-weight:bold">← Back to Home</a>
+</div>
 </body>
 </html>
