@@ -1,13 +1,39 @@
 <!DOCTYPE html>
-<html><head>
-<link rel="stylesheet" href="style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head><body class="sos-page">
-<div class="sos-container">
-<h1 class="khusela-title">KHUSELA</h1>
-<div class="purple-loader"></div>
-<p>Sending SOS... Stay Safe</p>
-<p>Location sharing active</p>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sending Help - KHUSELA</title>
+<style>
+body{margin:0;background:#F2E8FF;font-family:Arial;display:flex;justify-content:center;min-height:100vh;padding:20px}
+.card{background:white;border-radius:24px;padding:30px;max-width:400px;width:100%;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.logo{font-weight:bold;color:#4B2A7B;display:flex;align-items:center;gap:8px}
+.logo span{font-size:10px;color:#C9A86A;letter-spacing:2px;display:block}
+.here{font-size:11px;color:#6B5A8A}
+h1{color:#2D1B4D;font-size:36px;margin:10px 0}
+.sub{color:#6B5A8A;font-size:14px;line-height:1.5}
+.ring{width:120px;height:120px;border-radius:50%;border:3px solid #F2E8FF;margin:30px auto;position:relative;display:flex;align-items:center;justify-content:center}
+.ring:before{content:'';position:absolute;top:-3px;left:-3px;right:-3px;bottom:-3px;border-radius:50%;border:3px solid transparent;border-top-color:#FF8C2F;border-right-color:#4B2A7B;animation:spin 1.2s linear infinite}
+.center{background:#4B2A7B;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white}
+.dot{background:#FF8C2F;width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px}
+.btn{border:1px solid #4B2A7B;color:#4B2A7B;padding:12px 20px;border-radius:12px;background:white;font-weight:bold;margin-top:20px;display:inline-flex;gap:8px;cursor:pointer;text-decoration:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+<meta http-equiv="refresh" content="4;url=coming.html">
+</head>
+<body>
+<div class="card">
+<div class="top"><div class="logo">🛡️ KHUSELA<br><span>SAFE CIRCLE</span></div><div class="here">HERE WITH YOU</div></div>
+<p style="font-size:11px;letter-spacing:2px;color:#6B5A8A">KHUSELA SAFE CIRCLE</p>
+<h1>Sending help</h1>
+<p class="sub">Your alert is being prepared. Stay where you feel safest — we're with you.</p>
+<div class="ring"><div class="center">📍</div></div>
+<p><span class="dot"></span><b>Getting your circle ready</b></p>
+<p class="sub" style="font-size:12px">This is a screen preview. No alert is being sent.</p>
+<a href="index.html" class="btn">← Cancel preview</a>
+<p style="font-size:10px;color:#999;margin-top:15px">Visual handoff control - no alert or cancellation is performed</p>
 </div>
-<script>setTimeout(()=>{window.location.href='coming.html'},20000)</script>
-</body></html>
+</div>
+</body>
+</html>
