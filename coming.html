@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html><head>
-<link rel="stylesheet" href="style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head><body class="sos-page">
-<div class="sos-container">
-<h1 class="khusela-title">KHUSELA</h1>
-<h2>Help is Coming!</h2>
-<p>Your SOS was received. Help is on the way.</p>
-<p>Stay where you are.</p>
-<a href="home.html" class="btn-home">Back to Home</a>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help is Coming - KHUSELA</title>
+<style>
+body{margin:0;background:#F2E8FF;font-family:Arial;display:flex;justify-content:center;min-height:100vh;padding:20px}
+.card{background:white;border-radius:24px;padding:30px;max-width:400px;width:100%;text-align:center}
+.check{width:80px;height:80px;background:#E6F5E9;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:20px auto;font-size:40px;color:#2E7D32;border:3px solid white;box-shadow:0 0 0 3px #E6F5E9}
+h1{color:#2D1B4D;font-size:32px}
+.eta{background:#F2E8FF;border-radius:16px;padding:20px;margin:20px 0}
+.eta b{font-size:32px;color:#2D1B4D}
+.responder{display:flex;align-items:center;gap:12px;border:1px solid #eee;border-radius:12px;padding:12px;text-align:left}
+.sc{background:#F2E8FF;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;color:#4B2A7B}
+.orange{background:#FF8C2F;color:white;border:none;width:100%;padding:15px;border-radius:12px;font-weight:bold;font-size:16px;margin-top:15px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="card">
+<div class="check">✓</div>
+<p style="color:#2E7D32;font-weight:bold">● Help is on the way</p>
+<h1>You're not alone.</h1>
+<p style="color:#6B5A8A">A trusted responder is making their way to you. Keep this screen nearby.</p>
+<div class="eta">
+<p style="font-size:11px;letter-spacing:2px">ESTIMATED ARRIVAL</p>
+<p>🕒</p>
+<b>± 4 min</b>
+<p style="font-size:11px;color:#888">Demo estimate · not a live location update</p>
 </div>
-</body></html>
+<div class="responder"><div class="sc">SC</div><div><p style="font-size:10px;letter-spacing:1px;margin:0">YOUR CIRCLE RESPONDER</p><b>Safe Circle team</b></div><span style="margin-left:auto">🛡️</span></div>
+<button class="orange" onclick="location.href='index.html'">📞 Contact responder</button>
+</div>
+</body>
+</html>
