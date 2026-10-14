@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>KHUSELA Admin</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>🚨 KHUSELA Admin Dashboard</h1>
+<p>All SOS Alerts (Live)</p>
+<div id="alert-list">Loading...</div>
 
+<script>
+// For hackathon demo, we read from localStorage
+const alerts = JSON.parse(localStorage.getItem('khusela_alerts') || '[]');
+const list = document.getElementById('alert-list');
+
+if(alerts.length === 0){
+  list.innerHTML = "<p>No alerts yet. Try sending SOS from Home.</p>";
+} else {
+  list.innerHTML = alerts.map(a => `
+    <div style="border:1px solid red; padding:10px; margin:10px;">
+      <b>Time:</b> ${a.time}<br>
+      <b>Location:</b> ${a.lat}, ${a.lng}<br>
+      <b>Status:</b> ${a.status}
+    </div>
+  `).join('');
+}
+</script>
+</body>
+</html>
