@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KHUSELA Admin</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -10,7 +12,6 @@
 <div id="alert-list">Loading...</div>
 
 <script>
-// For hackathon demo, we read from localStorage
 const alerts = JSON.parse(localStorage.getItem('khusela_alerts') || '[]');
 const list = document.getElementById('alert-list');
 
@@ -18,7 +19,7 @@ if(alerts.length === 0){
   list.innerHTML = "<p>No alerts yet. Try sending SOS from Home.</p>";
 } else {
   list.innerHTML = alerts.map(a => `
-    <div style="border:1px solid red; padding:10px; margin:10px;">
+    <div style="border:1px solid red; padding:10px; margin:10px; border-radius:8px;">
       <b>Time:</b> ${a.time}<br>
       <b>Location:</b> ${a.lat}, ${a.lng}<br>
       <b>Status:</b> ${a.status}
