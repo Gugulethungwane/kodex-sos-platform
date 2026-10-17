@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SOS Location - Dokotela</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body { font-family: Arial; padding: 15px; }
+    #map { height: 400px; width: 100%; border-radius: 10px; margin-top: 10px; }
+    button { background: red; color: white; border: none; padding: 15px 30px; 
+             border-radius: 10px; font-size: 18px; width: 100%; }
+    #status { margin-top: 15px; padding: 10px; background: #f0f0f0; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+  <h2>📍 Test GPS Location</h2>
+  <button onclick="findMe()">GET MY LOCATION</button>
+  <div id="status">Click button to get GPS</div>
+  <div id="map"></div>
+
+  <p>Lat: <span id="lat">-</span></p>
+  <p>Lng: <span id="lng">-</span></p>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    let map;
+    
+    function findMe() {
+      document.getElementById('status').innerHTML = "Getting GPS... Please allow location";
+      
+      if (!navigator.geolocation) {
+        document.getElementById('status').innerHTML = "GPS not supported";
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          const acc = position.coords.accuracy;
+
+          document.getElementById('lat').innerHTML = lat;
+          document.getElementById('lng').innerHTML = lng;
+          document.getElementById('status').innerHTML = "✅ Location Found! Accuracy: " + acc + "m";
+
+          // Show on map
+          if (map) map.remove();
+          map = L.map('map').setView([lat, lng], 16);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+          L.marker([lat, lng]).addTo(map).bindPopup("You are here").openPopup();
+          L.circle([lat, lng], {radius: acc}).addTo(map);
+        },
+        function(error) {
+          let msg = "";
+          if (error.code === 1) msg = "❌ You BLOCKED location. Go to phone Settings > Browser > Allow Location";
+          if (error.code === 2) msg = "❌ No GPS signal. Go outside.";
+          if (error.code === 3) msg = "❌ GPS Timeout. Try again.";
+          document.getElementById('status').innerHTML = msg;
+        },
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+      );
+    }
+  </script>
+</body>
+</html>
