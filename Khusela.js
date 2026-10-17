@@ -382,11 +382,8 @@ function doSOS(){
   var fill = document.getElementById('fill');
   var helpText = document.getElementById('helpText');
   var holdText = document.getElementById('holdText');
-
-  // 1) Save FIRST so it is never lost
   var id = saveAlert(null, null, 'Demo alert saved');
 
-  // 2) Then add the location to the same alert when it arrives
   getLocation(function(p){
     updateAlert(id, {
       lat: p.coords.latitude,
